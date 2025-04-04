@@ -12,6 +12,8 @@ contract Voting {
     mapping(address => bool) public hasVoted;
     uint public candidatesCount;
 
+    event VoteCast(uint indexed candidateId, address indexed voter);
+
     constructor() {
         addCandidate("Alice");
         addCandidate("Bob");
@@ -28,6 +30,7 @@ contract Voting {
 
         hasVoted[msg.sender] = true;
         candidates[_candidateId].voteCount++;
+        emit VoteCast(_candidateId, msg.sender); // Emit event
     }
 
     function getCandidateVotes(uint _candidateId) public view returns (uint) {
