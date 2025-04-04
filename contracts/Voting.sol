@@ -15,8 +15,10 @@ contract Voting {
     event VoteCast(uint indexed candidateId, address indexed voter);
 
     constructor() {
-        addCandidate("Alice");
-        addCandidate("Bob");
+        addCandidate("BJP");
+        addCandidate("CONGRESS");
+	addCandidate("AAP");
+	addCandidate("NOTA");
     }
 
     function addCandidate(string memory _name) private {
